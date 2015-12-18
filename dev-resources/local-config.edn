@@ -1,0 +1,2 @@
+{:routes #resolve transit-demo.routes/main
+ :pre-load {:prefixes [:transit-demo.handler]}}
