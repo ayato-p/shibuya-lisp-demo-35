@@ -6,7 +6,8 @@ pom.xml.asc
 *.jar
 *.class
 /.lein-*
-/.nrepl-port
+/.nrepl-*
 .hgignore
 .hg/
 /resources/public/js/main.js
+figwheel_server.log

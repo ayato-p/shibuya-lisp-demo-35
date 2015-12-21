@@ -1,0 +1,15 @@
+{:http-server-root "public" ;; default
+ :server-port 3449          ;; default
+ :open-file-command "emacsclient"
+ ;; :repl false
+ :builds [{:id "transit-demo"
+           :source-paths ["src-cljc" "src-cljs"]
+           :figwheel {:js-onload transit-demo.main/reload
+                      :heads-up-display false}
+           :build-options
+           {:main transit-demo.main
+            :asset-path "js/out"
+            :output-to "resources/public/js/main.js"
+            :output-dir "resources/public/js/out"
+            :optimizations :none
+            :pretty-print true}}]}

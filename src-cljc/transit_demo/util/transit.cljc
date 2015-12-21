@@ -6,7 +6,7 @@
 (def custom-write-handlers
   {Book (transit/write-handler
          (constantly "book")
-         (fn [book] ((juxt :title :author :price :publisher) book)))})
+         (fn [book] ((juxt :id :title :author :price :publisher) book)))})
 
 (def custom-read-handlers
   {"book" (transit/read-handler

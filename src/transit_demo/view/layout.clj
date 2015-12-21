@@ -1,10 +1,11 @@
 (ns transit-demo.view.layout
-  (:require [hiccup.page :refer [html5 include-js]]))
+  (:require [hiccup.page :refer [html5 include-js include-css]]))
 
 (defn common-layout [& contents]
   (html5
    [:head
     [:title "Transit Demo"]
-    (include-js "/js/main.js")]
+    (include-css "/css/style.css")]
    [:body
-    contents]))
+    contents
+    (include-js "/js/main.js")]))

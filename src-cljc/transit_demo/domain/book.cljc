@@ -1,10 +1,10 @@
-(ns transit-demo.domain.book
-  (:require [transit-demo.proto :as p]))
+(ns transit-demo.domain.book)
 
-(defrecord Book [title author publisher price])
+(defrecord Book [id title author publisher price])
 
-(defn new-book [title author price publisher]
-  (map->Book {:title title
+(defn new-book [id title author price publisher]
+  (map->Book {:id id
+              :title title
               :author author
               :price price
               :publisher publisher}))

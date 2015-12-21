@@ -1,5 +1,6 @@
 (ns transit-demo.routes)
 
 (def main
-  ["/" {"" :home
-        "api" {"/books" :api/find-book}}])
+  ["/" {"" {"" :home
+            "cart" :cart}
+        "api" {"/book" {"/search" :api/search-book}}}])

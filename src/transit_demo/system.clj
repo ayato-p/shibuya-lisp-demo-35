@@ -1,5 +1,6 @@
 (ns transit-demo.system
   (:require [com.stuartsierra.component :as c]
+            [figwheel-sidecar.system :as fig-sys]
             [transit-demo.components.endpoint :as ep]
             [transit-demo.components.pre-loader :as pl]
             [transit-demo.components.webserver :as server]))
@@ -8,7 +9,8 @@
 
 (defn new-system [conf]
   (c/map->SystemMap
-   {:pre-loader (pl/new-pre-loader conf)
+   {:figwheel (fig-sys/figwheel-system (fig-sys/fetch-config))
+    :pre-loader (pl/new-pre-loader conf)
     :handler (ep/new-endpoint conf)
     :server (c/using (server/new-webserver conf)
                      [:handler :pre-loader])}))

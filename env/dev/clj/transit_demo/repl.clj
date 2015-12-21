@@ -6,6 +6,7 @@
             [clojure.string :as str]
             [clojure.test :as test]
             [clojure.tools.namespace.repl :refer [refresh refresh-all]]
+            [figwheel-sidecar.system :as fig-sys]
             [transit-demo.system :as system]))
 
 (defn go []
@@ -17,3 +18,6 @@
 (defn reset []
   (system/shutdown)
   (go))
+
+(defn cljs-repl []
+  (fig-sys/cljs-repl (:figwheel system/system)))

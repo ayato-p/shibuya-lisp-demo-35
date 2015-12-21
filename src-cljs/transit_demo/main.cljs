@@ -1,24 +1,18 @@
 (ns transit-demo.main
-  (:require [ajax.core :refer [GET transit-response-format]]
-            [clojure.browser.dom :as dom]
-            [cognitect.transit :as transit]
-            [transit-demo.domain.book :refer [new-book]]
+  (:require [clojure.browser.dom :as dom]
+            [re-frame.core :refer [dispatch-sync]]
+            [transit-demo.handler.cart]
+            [transit-demo.sub.cart]
             [transit-demo.impl :as impl]
-            [transit-demo.util.transit :as ut]))
-
-(def custom-reader
-  (transit/reader :json {:handlers ut/custom-read-handlers}))
-
-(defn find-book [callback]
-  (GET "/api/books"
-      {:handler callback
-       :response-format (transit-response-format {:handlers ut/custom-read-handlers
-                                                  :raw true})}))
+            [transit-demo.view.component.cart :as c]
+            [reagent.core :as reagent]))
 
 (defn main []
-  (find-book
-   (fn [{:keys [books]}]
-     (doseq [b books]
-       (js/console.log (impl/tax-include-price b))))))
+  (when-let [elm (js/document.getElementById "cart-app")]
+    (dispatch-sync [:transit-demo.handler.cart/initialize])
+    (js/setInterval #(reagent/render [c/app-component] elm) 300)))
+
+(defn reload []
+  (main))
 
 (main)
