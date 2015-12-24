@@ -4,6 +4,10 @@
 
 これは `Lisp Meet Up presented by Shibuya.lisp #35 <http://lisp.connpass.com/event/24249/>`_ で発表した際に使ったデモ用のアプリケーションです。
 
+詳細はブログに書いたのでそちらを読んでください。
+
+`Practical Reader Conditionals & Transit format <http://ayato-p.github.io/blog/2015/12/25/practical_reader_conditionals_transit_format.html>`_
+
 動かし方
 ========
 
