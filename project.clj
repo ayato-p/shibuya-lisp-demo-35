@@ -3,6 +3,7 @@
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :clean-targets ^{:protect false} [:target-path "resources/public/js" "out"]
   :repl-options {:init-ns transit-demo.repl}
   :source-paths ["src" "src-cljc" "src-cljs"]
   :plugins [[lein-cljsbuild "1.1.1"]
